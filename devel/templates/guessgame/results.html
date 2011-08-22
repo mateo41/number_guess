@@ -1,0 +1,19 @@
+<h1> Guess history </h1>
+<ul>
+
+{% for guess in game.guess_set.all %} 
+   <li> The guess {{ guess.guess }} is {{ guess.guess_result }} </li>
+{% endfor %}
+</ul>
+ {% if game.status == "Won" %} 
+   You win! Would you like to play a new game? <a href="/guessgame/newgame"> Click Here </a> 
+ {% endif %}
+  
+ {% if game.status == "Lose" %}
+   You have exceeded the number of guesses and lost. Bummer. 
+ Would you like to play a new game? <a href="/guessgame/newgame"> Click Here </a>
+ {% endif %}
+ {% if game.status == "Playing" %}
+
+ <a href="/guessgame/{{ game.id }}/"> Guess again?</a>
+ {% endif %}

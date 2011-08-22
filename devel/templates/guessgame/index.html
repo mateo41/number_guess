@@ -1,0 +1,10 @@
+{% if latest_games_list %}
+   <ul>
+   {% for game in latest_games_list %}
+      <li><a href="/guessgame/{{ game.id }}/">{{ game.pub_date }}  </a></li>
+   {% endfor %}
+   </ul>
+{% else %}
+   <p> No games are being played. </p>
+{% endif %}
+Would you like to play a new game? <a href="/guessgame/newgame"> Click Here </a>
