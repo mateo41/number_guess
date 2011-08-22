@@ -1,0 +1,23 @@
+Matt Rodriguez
+8/22/2011
+
+
+This is an example django web application, that provides a number guessing game.   
+The user has 5 opportunities to pick a number between 1 and 20. At each turn the game provides feedback about whether the guess was high or low. It also shows a history of guesses. The functionality of the game is working but the UI is unpolished.  
+
+Web application configuration 
+
+
+The database connection  and the templates directory need to be configured for this application to work. The app has been developed using a sqlite database. If you want to use a sqlite database you should update the filename which contains the sqlite database. Once that is done, you should run      
+
+%python manage.py syncdb
+
+This generates the tables needed for the web application.
+
+The templates directory needs to be configured. This needs to updated to point to the current location of the template directory. If you are adding this application to an existing django installation, then simply copy the devel/templates/guessgame directory into the existing template directory.  
+
+If you are adding this application to an existing django installation, then copy the devel/guessgame directory into the application. Add the application to the INSTALLED_APPS tuple in settings.py.
+
+If you are installing this into an existing django installation you will need to add a url into the url patterns. If you add the tuple below, then it will include the patterns in the guessgame/urls.py file. 
+
+  (r'^guessgame/', include('guessgame.urls'))
